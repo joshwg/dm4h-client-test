@@ -6,21 +6,21 @@
       "type": "string",
 	  "defaultValue": "redpoint",
       "metadata": {
-        "description": "This is the name of the your storage account"
+        "description": "The name of the storage account which contains an windows image with RPDM installed"
       }
     },
     "userImageStorageContainerName": {
       "type": "string",
 	    "defaultValue": "client-images",
       "metadata": {
-        "description": "This is the name of the container in your storage account"
+        "description": "The container name in the storage account with contains the windows image with RPDM installed"
       }
     },
     "userImageVhdName": {
       "type": "string",
 	  "defaultValue": "rpdm-osDisk.05186ce6-de9a-4883-b887-b8147d79c64f.vhd",
       "metadata": {
-        "description": "This is the name of the your customized VHD"
+        "description": "This is the name of customized image"
       }
     },
     "dnsNameForPublicIP": {
@@ -46,17 +46,27 @@
     "osType": {
       "type": "string",
       "allowedValues": [
-        "windows",
-        "linux"
+        "windows"
       ],
       "metadata": {
-        "description": "This is the OS that your VM will be running"
+        "description": "This is the OS that your VM will be running. You must choose windows. I don't know if we need this."
       }
     },
     "vmSize": {
       "type": "string",
+	  "defaultValue": "Standard_A3",
+      "allowedValues": [
+          "Standard_A1",
+          "Standard_A2",
+          "Standard_A3",
+          "Standard_A4",
+          "Standard_D1",
+          "Standard_D2",
+          "Standard_D3",
+          "Standard_D4"
+      ],
       "metadata": {
-        "description": "This is the size of your VM"
+        "description": "This is the size of your VM. There are other sizes."
       }
     }
   },
