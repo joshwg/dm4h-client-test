@@ -6,35 +6,35 @@
       "type": "string",
 	  "defaultValue": "redpoint",
       "metadata": {
-        "description": "The name of the storage account which contains an windows image with RPDM installed"
+        "description": "The name of the storage account which contains a windows image with RPDM installed"
       }
     },
     "userImageStorageContainerName": {
       "type": "string",
 	    "defaultValue": "client-images",
       "metadata": {
-        "description": "The container name in the storage account with contains the windows image with RPDM installed"
+        "description": "The container name in the storage account with contains a windows image with RPDM installed"
       }
     },
     "userImageVhdName": {
       "type": "string",
 	  "defaultValue": "rpdm-osDisk.05186ce6-de9a-4883-b887-b8147d79c64f.vhd",
       "metadata": {
-        "description": "This is the name of customized image"
+        "description": "This is the path of the windows image"
       }
     },
     "dnsNameForPublicIP": {
       "type": "string",
-	  "defaultValue": "dmh4-client",
+	  "defaultValue": "dm4h-client",
       "metadata": {
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
     },
     "adminUserName": {
       "type": "string",
-  	  "defaultValue": "admin",
+  	  "defaultValue": "dm4h",
       "metadata": {
-        "description": "UserName for the Virtual Machine"
+        "description": "UserName for the Virtual Machine. Must not be admin."
       }
     },
     "adminPassword": {
@@ -45,6 +45,7 @@
     },
     "osType": {
       "type": "string",
+	  "defaultValue": "windows",
       "allowedValues": [
         "windows"
       ],
