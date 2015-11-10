@@ -23,6 +23,20 @@
         "description": "This is the path of the windows image"
       }
     },
+	"vmStorageAccountName": {
+      "type": "string",
+	  "defaultValue": "jwgtest",
+      "metadata": {
+        "description": "The name of the storage account which contains a windows image with RPDM installed"
+	  }
+	},
+	"vmName": {
+	  "type": "string",
+	  "defaultValue": "dm4hclient",
+	  "metadata": {
+         "description": "The name of the vm we are going to create"
+      }
+    },
     "dnsNameForPublicIP": {
       "type": "string",
 	  "defaultValue": "dm4h-client",
@@ -43,16 +57,6 @@
         "description": "Password for the Virtual Machine"
       }
     },
-    "osType": {
-      "type": "string",
-	  "defaultValue": "windows",
-      "allowedValues": [
-        "windows"
-      ],
-      "metadata": {
-        "description": "This is the OS that your VM will be running. You must choose windows. I don't know if we need this."
-      }
-    },
     "vmSize": {
       "type": "string",
 	  "defaultValue": "Standard_A3",
@@ -67,14 +71,15 @@
           "Standard_D4"
       ],
       "metadata": {
-        "description": "This is the size of your VM. There are other sizes."
+        "description": "This is the size of your VM. There are other sizes than those listed here."
       }
     }
   },
   "variables": {
+	"osType": "windows",
     "location": "[resourceGroup().location]",
-    "publicIPAddressName": "dm4h",
-    "vmName": "dm4h-client",
+    "publicIPAddressName": "dm4h-ip",
+
     "virtualNetworkName": "dm4hVNET",
     "nicName": "dm4hVMNic",
     "addressPrefix": "10.0.0.0/16",
@@ -84,7 +89,7 @@
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
     "userImageName": "[concat('http://',parameters('userImageStorageAccountName'),'.blob.core.windows.net/',parameters('userImageStorageContainerName'),'/',parameters('userImageVhdName'))]",
-    "osDiskVhdName": "[concat('http://',parameters('userImageStorageAccountName'),'.blob.core.windows.net/vhds/',variables('vmName'),'-osDisk.vhd')]"
+    "osDiskVhdName": "[concat('http://',parameters('vmStorageAccountName'),'.blob.core.windows.net/vhds/',parameters('vmName'),'-osDisk.vhd')]"
   },
   "resources": [
     {
@@ -192,5 +197,5 @@
         }
       }
     }
-  ]
+  ],
 }
