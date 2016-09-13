@@ -1,5 +1,7 @@
 # Create an HDInsight Linux Cluster with RedPoint Data Management
-This template creates an single VM from a VHD image file:
+
+This template creates an single VM from a VHD image file.
+See <a href="https://github.com/redpoint-global/dm4h-hdi-test">https://github.com/redpoint-global/dm4h-hdi-test</a> for a more current version of this product.
 
 * a Windows VM that runs the Data Management client
 
